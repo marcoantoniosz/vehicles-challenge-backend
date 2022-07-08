@@ -25,7 +25,7 @@ const getAll = async (_req, res) => {
 
 const validateId = async (req, res, next) => {
   const { id } = req.params;
-  const { message } = QuerySchemas.validateId(id);
+  const { message } = QuerySchemas.validateId(Number(id));
   if (message) {
     return res.status(codes.bad_request).json(message);
   }
@@ -34,7 +34,7 @@ const validateId = async (req, res, next) => {
 
 const notFoundId = async (req, res, next) => {
   const { id } = req.params;
-  const ad = await Ad.getById(id);
+  const ad = await Ad.getById(Number(id));
   if (!ad) {
     return res.status(codes.not_found).json({ message: messages.not_found });
   }
@@ -43,7 +43,7 @@ const notFoundId = async (req, res, next) => {
 
 const getById = async (req, res) => {
   const { id } = req.params;
-  const ad = await Ad.getById(id);
+  const ad = await Ad.getById(Number(id));
   res.status(codes.ok).json(ad);
 };
 
