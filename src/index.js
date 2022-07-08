@@ -9,6 +9,4 @@ app.use(express.json());
 app.use(router);
 app.use(cors());
 
-app.listen(process.env.APP_URL, () => {
-  console.log('Aplicação ouvindo na porta 3001');
-});
+app.listen(process.env.PORT || 3000);
