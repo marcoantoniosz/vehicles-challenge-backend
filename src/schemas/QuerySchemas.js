@@ -7,6 +7,14 @@ const validateQuery = (searchTerm) => {
   return {};
 }
 
+const validateId = (id) => {
+  if(!id) {
+    return { message: { message: messages.blank_space } };
+  }
+  return {};
+};
+
 module.exports = {
-  validateQuery
+  validateQuery,
+  validateId
 }

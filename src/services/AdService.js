@@ -17,6 +17,11 @@ const getAll = async () => {
   return ads.map(serialize);
 };
 
+const getById = async (id) => {
+  const ad = await Ad.getById(id);
+  return serialize(ad);
+};
+
 const getByQuery = async (query) => {
   const ads = await Ad.getByQuery(query);
   return ads.map(serialize);
@@ -47,6 +52,7 @@ const deleteAd = async (id) => {
 module.exports = { 
   getAll,
   getByQuery,
+  getById,
   getByFilters,
   createNewAd,
   updateAd,

@@ -7,6 +7,13 @@ const getAll = async () => {
 	return ads;
 };
 
+const getById = async (id) => {
+	const [ads] = await connection.execute(
+		`SELECT * FROM sql10504076.ad WHERE ad_id = ${id};`,
+	);
+	return ads;
+};
+
 const getByQuery = async (query) => {
 	const [ads] = await connection.execute(
 		`SELECT * FROM sql10504076.ad WHERE car_name LIKE '%${query}%' OR car_brand LIKE '%${query}%' OR car_color LIKE '%${query}%' OR car_year LIKE '%${query}%' OR car_plate LIKE '%${query}%' OR car_description LIKE '%${query}%' OR car_price LIKE '%${query}%';`,
@@ -57,6 +64,7 @@ const deleteAd = async (id) => {
 module.exports = {
 	getAll,
 	getByQuery,
+	getById,
 	getByFilters,
 	createNewAd,
 	updateAd,

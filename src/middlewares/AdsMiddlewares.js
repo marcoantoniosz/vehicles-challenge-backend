@@ -23,6 +23,30 @@ const getAll = async (_req, res) => {
   res.status(codes.ok).json(ads);
 };
 
+const validateId = async (req, res, next) => {
+  const { id } = req.params;
+  const { message } = QuerySchemas.validateId(id);
+  if (message) {
+    return res.status(codes.bad_request).json(message);
+  }
+  next();
+};
+
+const notFoundId = async (req, res, next) => {
+  const { id } = req.params;
+  const ad = await Ad.getById(id);
+  if (!ad) {
+    return res.status(codes.not_found).json({ message: messages.not_found });
+  }
+  next();
+};
+
+const getById = async (req, res) => {
+  const { id } = req.params;
+  const ad = await Ad.getById(id);
+  res.status(codes.ok).json(ad);
+};
+
 const validateQuery = async (req, res, next) => {
   const { q: searchTerm } = req.query;
   const { message } = QuerySchemas.validateQuery(searchTerm);
@@ -116,6 +140,9 @@ const deleteAd = async (req, res) => {
 
 module.exports = {
   getAll,
+  validateId,
+  notFoundId,
+  getById,
   validateQuery,
   notFoundQuery,
   getQuerry,

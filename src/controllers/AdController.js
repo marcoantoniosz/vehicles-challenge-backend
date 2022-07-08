@@ -4,6 +4,8 @@ const router = express.Router();
 
 router.get('/ads', Mw.getAll);
 
+router.get('/ads/:id', Mw.validateId, Mw.notFoundId, Mw.getById);
+
 router.get('/ads/search', Mw.validateQuery, Mw.notFoundQuery, Mw.getQuerry);
 
 router.get('/ads/filters', Mw.validateFilters, Mw.notFoundFilters, Mw.getFilters);
