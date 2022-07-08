@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const Ad = require('./controllers/AdController');
@@ -8,6 +9,6 @@ app.use(express.json());
 app.use(router);
 app.use(cors());
 
-app.listen(3001, () => {
+app.listen(process.env.APP_URL, () => {
   console.log('Aplicação ouvindo na porta 3001');
 });
