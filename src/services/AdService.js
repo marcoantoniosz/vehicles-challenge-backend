@@ -18,8 +18,8 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
-  const ad = await Ad.getById(id);
-  return serialize(ad);
+  const ads = await Ad.getById(id);
+  return ads.map(serialize);
 };
 
 const getByQuery = async (query) => {
