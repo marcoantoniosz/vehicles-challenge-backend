@@ -35,7 +35,7 @@ const validateId = async (req, res, next) => {
 const notFoundId = async (req, res, next) => {
   const { id } = req.params;
   const ad = await Ad.getById(Number(id));
-  if (!ad) {
+  if (ad.length === 0) {
     return res.status(codes.not_found).json({ message: messages.not_found });
   }
   next();
