@@ -53,6 +53,14 @@ const updateAd = async (ad, id) => {
 	return result;
 }
 
+const updateFavorite = async (favorite, id) => {
+	const [result] = await connection.execute(
+		'UPDATE sql10504076.ad SET favorite = ? WHERE ad_id = ?',
+		[favorite, id],
+	);
+	return result;
+};
+
 const deleteAd = async (id) => {
 	const [result] = await connection.execute(
 		'DELETE FROM sql10504076.ad WHERE ad_id = ?',
@@ -68,6 +76,7 @@ module.exports = {
 	getByFilters,
 	createNewAd,
 	updateAd,
+	updateFavorite,
 	deleteAd,
 	getByFavoriteStatus,
 };

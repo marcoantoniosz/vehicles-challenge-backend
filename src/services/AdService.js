@@ -45,6 +45,10 @@ const updateAd = async (ad, id) => {
   await Ad.updateAd(ad, id);
 }
 
+const updateFavorite = async (favorite, id) => {
+  await Ad.updateFavorite(favorite, id);
+};
+
 const deleteAd = async (id) => {
   await Ad.deleteAd(id);
 };
@@ -56,6 +60,7 @@ module.exports = {
   getByFilters,
   createNewAd,
   updateAd,
+  updateFavorite,
   deleteAd,
   getByFavoriteStatus
  };

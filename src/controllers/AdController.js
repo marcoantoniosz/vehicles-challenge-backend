@@ -16,6 +16,8 @@ router.post('/ads', Mw.validateInputs, Mw.createAd);
 
 router.put('/ads/:id', Mw.validateInputs, Mw.updateAd);
 
+router.put('/ads/favorite/:id', Mw.updateFavorite);
+
 router.delete('/ads/:id', Mw.deleteAd);
 
 

@@ -132,6 +132,13 @@ const updateAd = async (req, res) => {
   res.status(codes.updated).json({ message: messages.updated });
 }
 
+const updateFavorite = async (req, res) => {
+  const { id } = req.params;
+  const { favorite } = req.body;
+  await Ad.updateFavorite(favorite, id);
+  res.status(codes.updated).json({ message: messages.updated });
+};
+
 const deleteAd = async (req, res) => {
   const { id } = req.params;
   await Ad.deleteAd(id);
@@ -154,6 +161,7 @@ module.exports = {
   validateInputs,
   createAd,
   updateAd,
+  updateFavorite,
   deleteAd,
 };
 
