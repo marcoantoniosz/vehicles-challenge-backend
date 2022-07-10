@@ -43,7 +43,7 @@ const createNewAd = async (newAd) => {
 
 const updateAd = async (ad, id) => {
   await Ad.updateAd(ad, id);
-}
+};
 
 const updateFavorite = async (favorite, id) => {
   await Ad.updateFavorite(favorite, id);

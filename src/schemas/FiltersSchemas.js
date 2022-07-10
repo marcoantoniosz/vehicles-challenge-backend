@@ -1,5 +1,5 @@
 const messages = {
-  blank_space_brand: 'Marca máximo não pode estar em branco',
+  blank_space_brand: 'Marca não pode estar em branco',
   blank_space_color: 'Cor não pode estar em branco',
   blank_space_year: 'Ano não pode estar em branco', 
   blank_space_min: 'Valor mínimo não pode estar em branco', 

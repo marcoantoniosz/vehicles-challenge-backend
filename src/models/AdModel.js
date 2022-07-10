@@ -27,7 +27,7 @@ const getByFilters = async (b, c, y, min, max) => {
 		`SELECT * FROM sql10504076.ad WHERE car_brand LIKE '%${b}%' AND car_color LIKE '%${c}%' AND car_year LIKE '%${y}%' AND car_price BETWEEN '${min}' AND '${max}';`,
 	);
 	return ads;
-}
+};
 
 
 const getByFavoriteStatus = async (favorite) => {
@@ -35,7 +35,7 @@ const getByFavoriteStatus = async (favorite) => {
 		`SELECT * FROM sql10504076.ad WHERE favorite = ${favorite};`,
 	);
 	return ads;
-}
+};
 
 const createNewAd = async (newAd) => {
 	const [result] = await connection.execute(
@@ -43,7 +43,7 @@ const createNewAd = async (newAd) => {
 		[newAd.name, newAd.brand, newAd.color, newAd.year, newAd.plate, newAd.description, newAd.price, newAd.favorite],
 	);
 	return result;
-}
+};
 
 const updateAd = async (ad, id) => {
 	const [result] = await connection.execute(
@@ -51,7 +51,7 @@ const updateAd = async (ad, id) => {
 		[ad.name, ad.brand, ad.color, ad.year, ad.plate, ad.description, ad.price, ad.favorite, id],
 	);
 	return result;
-}
+};
 
 const updateFavorite = async (favorite, id) => {
 	const [result] = await connection.execute(
@@ -67,7 +67,7 @@ const deleteAd = async (id) => {
 		[id],
 	);
 	return result;
-}
+};
 
 module.exports = {
 	getAll,

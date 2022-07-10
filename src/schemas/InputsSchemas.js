@@ -8,7 +8,7 @@ const messages = {
   blank_space_price: 'Preço não pode estar em branco', 
   blank_space_favorited: 'Favoritado não pode estar em branco',
   not_a_number_price: 'Preço deve ser um número',
-  not_a_number_year: 'Ano deve ser um número' }
+  not_a_number_year: 'Ano deve ser um número' };
 
 const validateCreationInputs = (newAd) => {
   const { name, brand, color, year, plate, description, price, favorited } = newAd;
@@ -23,6 +23,6 @@ const validateCreationInputs = (newAd) => {
   if(typeof price !== 'number') return { message: { message: messages.not_a_number_price } };
   if (favorited === null) return { message: { message: messages.blank_space_favorited } };
   return {};
-}
+};
 
 module.exports = { validateCreationInputs };

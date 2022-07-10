@@ -23,5 +23,5 @@ router.delete('/ads/:id', Mw.deleteAd);
 
 module.exports = {
   router,
-}
+};
 
