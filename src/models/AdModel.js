@@ -1,6 +1,6 @@
 require('dotenv').config();
 const connection = require('./connection');
-const DB = process.env.SQL_DATABASE;
+const DB = process.env.SQL_TABLE;
 
 const getAll = async () => {
 	const [ads] = await connection.execute(
